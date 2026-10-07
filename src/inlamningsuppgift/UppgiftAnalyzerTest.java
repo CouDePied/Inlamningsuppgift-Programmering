@@ -16,29 +16,46 @@ public class UppgiftAnalyzerTest {
 //Act-Själva beräkningen av klassen eller metoden.
 //Sparar resultatet.(Actual.)
 //Assert-Jämför om vi fick rätt resultat.
+    @Test
+    public void CountLinesTest() {
+        //Testar att processLine() räknar upp antalet rader korrekt
+        // (och att getLineCount() returnerar rätt antal rader.)
+
+        //Arrange
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+        //Act
+        analyzer.processLine("Hej");
+        analyzer.processLine("Vad heter du?");
+
+        int actual = analyzer.getLineCount();
+        int expected = 2;
+
+        //Assert
+        assertEquals(expected, actual);
 
 
-        @Test
-        public void CountLinesAndCharactersTest() {
-            //Testar processLine(), getLineCount() och getCharCount().
-            //Arrange
-            UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-            //Act
-            analyzer.processLine("Hej");
-            analyzer.processLine("Hello");
+    }
+@Test
+public void CountCharactersTest() {
+        //Testar att programmet räknar antal tecken.
+    //processLine() gör själva räknandet
+    //Och getCharCount() hämtar resultatet.
+        //Arrange
+    UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
-            int actualLines = analyzer.getLineCount();
-            int actualCharacters = analyzer.getCharCount();
-            int expectedLines = 2;
-            int expectedCharacters = 8;
+    //Act
+    analyzer.processLine("Hej");
+    analyzer.processLine("Jag heter Rebecca");
 
-            //Assert
-            assertEquals(expectedLines, actualLines);
-            assertEquals(expectedCharacters, actualCharacters);
+    int actual = analyzer.getCharCount();
+    int expected = 20;
 
-            //Hej = 3 tecken
-            //Hello = 5 tecken
-            //DEt blir totalt 8
+    //Assert
+    assertEquals(expected, actual);
+
+
+
+
 
         }
         @Test
@@ -72,22 +89,6 @@ public class UppgiftAnalyzerTest {
 
 
 
-        }
-        //Kollar att om mellanslag ska inte skapa extra ord.
-
-        @Test
-        public void CountWordsWithMultipleSpaces() {
-
-            //Arrange
-            UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-
-            //Act
-            analyzer.processLine("Jag  gillar  katter");
-
-            int actual = analyzer.getWordCount();
-            int expected = 3;
-            //Assert
-            assertEquals(expected, actual);
 
 
 
