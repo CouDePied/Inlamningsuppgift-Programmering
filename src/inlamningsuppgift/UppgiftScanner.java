@@ -20,16 +20,19 @@ import java.util.Scanner;
             //Programmet pausar och väntar tills användaren skrivit och tryckt enter.
             //Är ordet stop? Annars gå tillbaka och läs en rad igen.
             //Sparas i line.
-            while (true) {
+            //while (true) {
                 String line = scan.nextLine();
+                while (!analyzer.isStop(line)) {
 
 //Skickar den inlästa raden till UppgiftAnalyzer och frågar.
                 //Agerar sen på svaret.
-                if (analyzer.isStop(line)) {
-                    break;
-                }
+                //if (analyzer.isStop(line)) {
+                   // break;
+
+
 
                 analyzer.processLine(line);
+                line = scan.nextLine();
             }
 
             System.out.println("Antal rader: " + analyzer.getLineCount());

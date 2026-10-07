@@ -20,16 +20,19 @@ public class UppgiftAnalyzer {
 
 
     // Ansvarar för att analysera inmatad text.
-    //   Håller koll på räkningen antal rader, tecken, ord samt det längsta ordet.
+    // Håller koll på räkningen antal rader, tecken, ord samt det längsta ordet.
     // Ansvarar även för att avgöra om en given rad signalerar "stop".
 
+//Logikklassen
 
     private int lineCount;
     private int charCount;
     private int wordCount;
     private String longestWord = "";
-
-    //Fast Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i den sndra logikklassen
+    //Kan man använda en while (!text.equals("stop"))
+    //Boolean ändras när vi sparar antal
+    //Hämtar en boolena från logikklassen
+    // Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i logikklassen
     //DEn här Ser om raden ska tolkas som stop kommando
     public boolean isStop(String line) {
 

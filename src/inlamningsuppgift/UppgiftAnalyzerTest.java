@@ -26,9 +26,16 @@ public class UppgiftAnalyzerTest {
             //Act
             analyzer.processLine("Hej");
             analyzer.processLine("Hello");
+
+            int actualLines = analyzer.getLineCount();
+            int actualCharacters = analyzer.getCharCount();
+            int expectedLines = 2;
+            int expectedCharacters = 8;
+
             //Assert
-            assertEquals(2, analyzer.getLineCount());
-            assertEquals(8, analyzer.getCharCount());
+            assertEquals(expectedLines, actualLines);
+            assertEquals(expectedCharacters, actualCharacters);
+
             //Hej = 3 tecken
             //Hello = 5 tecken
             //DEt blir totalt 8
@@ -41,27 +48,48 @@ public class UppgiftAnalyzerTest {
             UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
             //Act
             analyzer.processLine("Jag gillar katter");
+
+            int actual = analyzer.getWordCount();
+            int expected = 3;
             //Assert
-            assertEquals(3, analyzer.getWordCount());
+            assertEquals(expected, actual);
+
+
 
         }
         @Test
         public void FindLongestWordTest() {
             //Kontrollerar att programmet hittar det längsta ordet
+            //Arrange
             UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+            //Act
             analyzer.processLine("Jag gillar mörk choklad och katter");
-            assertEquals("choklad", analyzer.getLongestWord());
+
+            String actual = analyzer.getLongestWord();
+            String expected = "choklad";
+            //Assert
+            assertEquals(expected, actual);
+
+
 
         }
         //Kollar att om mellanslag ska inte skapa extra ord.
 
         @Test
         public void CountWordsWithMultipleSpaces() {
+
+            //Arrange
             UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
+            //Act
             analyzer.processLine("Jag  gillar  katter");
 
-            assertEquals(3, analyzer.getWordCount());
+            int actual = analyzer.getWordCount();
+            int expected = 3;
+            //Assert
+            assertEquals(expected, actual);
+
+
 
 
         }
@@ -69,26 +97,57 @@ public class UppgiftAnalyzerTest {
         //Att siffrorna behandlas som text.
         @Test
         public void CountNumbersAsWordsTest() {
+
+            //Arrange
             UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
+            //Act
             analyzer.processLine("123 456 789");
 
-            assertEquals(3, analyzer.getWordCount());
+            int actual = analyzer.getWordCount();
+            int expected = 3;
+
+            assertEquals(expected, actual);
+
+
+
 
         }
         //Testar en tom textsträng och ser om line.length
         //Fungerar om den är tom.
         @Test
         public void CountEmptyLineAsZeroCharacters() {
+            //Arrange
             UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-
+            //Act
             analyzer.processLine("");
 
-            assertEquals(0, analyzer.getCharCount());
+            int actual = analyzer.getCharCount();
+            int expected = 0;
+
+            //Assert
+            assertEquals(expected, actual);
+
+
 
         }
+        //Kontrollerar om logiken i stop fungerar som den ska
+        @Test
+    public void StopTest() {
+//Arrange
+
+UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+
+//Act
+   boolean actual = analyzer.isStop("stop");
+   boolean expected = true;
+   //Assert
+            assertEquals(expected, actual);
+
 
     }
+
+}
 
 
 
