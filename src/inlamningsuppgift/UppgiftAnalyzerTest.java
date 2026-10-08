@@ -129,25 +129,30 @@ public void CountCharactersTest() {
         }
         //Kontrollerar om logiken i stop fungerar som den ska
         @Test
-    public void StopReturnsTrueTest() {
+    public void StopReturnsFalseTest() {
 //Arrange
 
 UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
 //Act
-   boolean actual = analyzer.isStop("stop");
-   boolean expected = true;
+            analyzer.processLine("stop");
+   boolean actual = analyzer.isRunning();
+   boolean expected = false;
    //Assert
             assertEquals(expected, actual);
 
 
     }
 @Test
-        public void StopReturnsFalseTest() {
+        public void StopReturnsTrueTest() {
+        //Arrange
     UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
-    boolean actual = analyzer.isStop("Hej");
-    boolean expected = false;
+    //Act
+    analyzer.processLine("Hej");
+
+    boolean actual = analyzer.isRunning();
+    boolean expected = true;
 
     assertEquals(expected, actual);
 

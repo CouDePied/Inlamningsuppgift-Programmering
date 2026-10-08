@@ -13,7 +13,7 @@ import java.util.Scanner;
 
             System.out.println("Skriv text rad för rad. Skriv sen ordet stop för att avsluta.");
 
-            //Loopen körs för evigt om inget stop.
+            //Loopen körs för evigt om inget sto.
             //Programmet pausar och väntar tills användaren skrivit och tryckt enter.
            //Så länge raden inte är stop-fortsätt loopen.
             //När användaren skriver strop får vi isStop("stop") - true
@@ -21,7 +21,8 @@ import java.util.Scanner;
             //Sparas i line.
 
                 String line = scan.nextLine();
-                while (!analyzer.isStop(line)) {
+                while (analyzer.isRunning()) {
+                    analyzer.processLine(scan.nextLine());
 //Obs Scanner gör ingen jämförelse med stop.
 //Skickar den inlästa raden till UppgiftAnalyzer och frågar.
                 //Agerar sen på svaret.
