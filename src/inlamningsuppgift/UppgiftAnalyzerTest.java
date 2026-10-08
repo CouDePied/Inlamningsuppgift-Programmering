@@ -144,7 +144,7 @@ UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
     }
 @Test
-        public void StopReturnsTrueTest() {
+        public void TextReturnsTrueTest() {
         //Arrange
     UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
