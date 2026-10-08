@@ -2,9 +2,6 @@ package inlamningsuppgift;
 
 import java.util.Scanner;
 
-
-    import java.util.Scanner;
-
     public class UppgiftScanner {
 
 
@@ -20,15 +17,12 @@ import java.util.Scanner;
             //Programmet pausar och väntar tills användaren skrivit och tryckt enter.
             //Är ordet stop? Annars gå tillbaka och läs en rad igen.
             //Sparas i line.
-            //while (true) {
+
                 String line = scan.nextLine();
                 while (!analyzer.isStop(line)) {
 
 //Skickar den inlästa raden till UppgiftAnalyzer och frågar.
                 //Agerar sen på svaret.
-                //if (analyzer.isStop(line)) {
-                   // break;
-
 
 
                 analyzer.processLine(line);

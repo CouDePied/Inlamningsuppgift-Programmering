@@ -55,8 +55,6 @@ public void CountCharactersTest() {
 
 
 
-
-
         }
         @Test
         public void CountWordsTest() {
@@ -90,12 +88,9 @@ public void CountCharactersTest() {
 
 
 
-
-
-
         }
         //Kontrollerar om/att programmet räknar text.
-        //Att siffrorna behandlas som text.
+        //Om siffror behandlas som text.
         @Test
         public void CountNumbersAsWordsTest() {
 

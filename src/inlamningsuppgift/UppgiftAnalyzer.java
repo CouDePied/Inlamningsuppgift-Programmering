@@ -10,7 +10,6 @@ public class UppgiftAnalyzer {
     //Skriver ut antal ord (separerade med blanksteg)
     //Skriver ut det längsta ordet
 
-    //Programmet ska bestå av två klasser
 
     //En annan klass som
     //Räknar raderna, antal tecken, och antal ord
