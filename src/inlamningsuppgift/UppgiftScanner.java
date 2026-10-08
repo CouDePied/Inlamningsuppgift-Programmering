@@ -15,12 +15,14 @@ import java.util.Scanner;
 
             //Loopen körs för evigt om inget stop.
             //Programmet pausar och väntar tills användaren skrivit och tryckt enter.
-            //Är ordet stop? Annars gå tillbaka och läs en rad igen.
+           //Så länge raden inte är stop-fortsätt loopen.
+            //När användaren skriver strop får vi isStop("stop") - true
+            //Och då blir !true false. Därför avslutas loopen.
             //Sparas i line.
 
                 String line = scan.nextLine();
                 while (!analyzer.isStop(line)) {
-
+//Obs Scanner gör ingen jämförelse med stop.
 //Skickar den inlästa raden till UppgiftAnalyzer och frågar.
                 //Agerar sen på svaret.
 

@@ -64,7 +64,7 @@ public void CountCharactersTest() {
             //Act
             analyzer.processLine("Jag gillar katter");
 
-            int actual = analyzer.getWordCount();
+            int actual = analyzer.getWordCount(); // Klicka på Create method
             int expected = 3;
             //Assert
             assertEquals(expected, actual);
@@ -129,7 +129,7 @@ public void CountCharactersTest() {
         }
         //Kontrollerar om logiken i stop fungerar som den ska
         @Test
-    public void StopTest() {
+    public void StopReturnsTrueTest() {
 //Arrange
 
 UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
@@ -142,6 +142,16 @@ UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
 
     }
+@Test
+        public void StopReturnsFalseTest() {
+    UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+
+    boolean actual = analyzer.isStop("Hej");
+    boolean expected = false;
+
+    assertEquals(expected, actual);
+
+}
 
 }
 

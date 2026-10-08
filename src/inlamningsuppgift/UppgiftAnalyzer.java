@@ -24,18 +24,23 @@ public class UppgiftAnalyzer {
 
 //Logikklassen
 
-    private int lineCount;
-    private int charCount;
-    private int wordCount;
+    private int lineCount = 0;
+    private int charCount = 0;
+    private int wordCount = 0;
     private String longestWord = "";
-    //Kan man använda en while (!text.equals("stop"))
-    //Boolean ändras när vi sparar antal
-    //Hämtar en boolena från logikklassen
+    //Kan man använda while (!text.equals("stop"))
+
     // Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i logikklassen
-    //DEn här Ser om raden ska tolkas som stop kommando
+    //DEn här bestämmer om raden ska tolkas som stop kommando
+
     public boolean isStop(String line) {
 
-        return line.trim().equals("stop");
+        if (line.trim().equals("stop")) {
+            return true;
+        } else {
+            return false;
+
+        }
     }
 
 //Ordningen avgör. Från scanner kommer frågan
@@ -50,12 +55,13 @@ public class UppgiftAnalyzer {
 
         String trimmed = line.trim();
         String[] words = trimmed.split(" ");
-        for (String word : words) {     //Går igenom arrayen ett ord i taget.
+        for (int i = 0; i < words.length; i++) {     //Går igenom arrayen ett ord i taget.
 
             wordCount++;   //Bearbetar och räknar varje ord som loopen pekar på.
 
-            if (word.length() >= longestWord.length()) {
-                longestWord = word;
+            if (words[i].length() >= longestWord.length()) {
+                longestWord = words[i];
+
             }
         }
     }
