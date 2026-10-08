@@ -20,7 +20,7 @@ import java.util.Scanner;
             //Och då blir !true false. Därför avslutas loopen.
             //Sparas i line.
 
-                String line = scan.nextLine();
+
                 while (analyzer.isRunning()) {
                     analyzer.processLine(scan.nextLine());
 //Obs Scanner gör ingen jämförelse med stop.
@@ -28,8 +28,7 @@ import java.util.Scanner;
                 //Agerar sen på svaret.
 
 
-                analyzer.processLine(line);
-                line = scan.nextLine();
+
             }
 
             System.out.println("Antal rader: " + analyzer.getLineCount());
