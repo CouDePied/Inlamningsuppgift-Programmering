@@ -25,6 +25,7 @@ public class MightyScaninator3000 {
             analyzer.processLine(scan.nextLine());
             //Skickar den inlästa raden till UppgiftAnalyzer som avgör.
             //Scanner gör ingen jämförelse med stop.
+            //Den kollar bara om isRunning är true.
             //Agerar sen på svaret.
 
 
