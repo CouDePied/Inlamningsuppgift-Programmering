@@ -37,24 +37,20 @@ public class UppgiftAnalyzer {
         this.wordCount = 0;
         this.longestWord = "";
         this.running = true;
-        // Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i logikklassen
-        //Bestämmer om raden ska tolkas som stop kommando
+
     }
 
 
-//Ordningen avgör. Från scanner kommer frågan
-// och Om break blir så körs aldrig processLine igen
-    //Och därför räknas inte raden med stop med.
-
-
+//Ordningen. Från scanner kommer frågan
+// När användaren skriver stop sätts running till false
+// om running blir false avslutas while loopen.
     public void processLine(String line) {
         if (line.trim().equals("stop")) {
-
+            // Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i logikklassen
+            //Bestämmer om raden ska tolkas som stop kommando
             running = false;
             return;
-//Ordningen avgör. Från scanner kommer frågan
-// och Om false blir så körs aldrig processLine igen
-            //Och därför räknas inte raden med stop med.
+
 
         }
         lineCount++;

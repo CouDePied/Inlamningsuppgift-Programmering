@@ -13,17 +13,18 @@ public class MightyScaninator3000 {
 
         System.out.println("Skriv text rad för rad. Skriv sen ordet stop för att avsluta.");
 
-        //Loopen körs för evigt om inget sto.
-        //Programmet pausar och väntar tills användaren skrivit och tryckt enter.
+
+
+
+        //Loopen körs för evigt om inget stop.
+        //Programmet pausar och väntar(genom scan.nextLine())
+        // tills användaren skrivit och tryckt enter.
         //Så länge raden inte är stop-fortsätt loopen.
-
-
-
 
         while (analyzer.isRunning()) {
             analyzer.processLine(scan.nextLine());
-//Obs Scanner gör ingen jämförelse med stop.
-//Skickar den inlästa raden till UppgiftAnalyzer och frågar.
+            //Skickar den inlästa raden till UppgiftAnalyzer och frågar.
+            //Scanner gör ingen jämförelse med stop.
             //Agerar sen på svaret.
 
 
