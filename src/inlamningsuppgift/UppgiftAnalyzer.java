@@ -24,26 +24,23 @@ public class UppgiftAnalyzer {
 
 //Logikklassen
 
-    private int lineCount = 0;
-    private int charCount = 0;
-    private int wordCount = 0;
-    private String longestWord = "";
-    private boolean running = true;
+    private int lineCount;
+    private int charCount;
+    private int wordCount;
+    private String longestWord;
+    private boolean running;
 
-    //Kan man använda while (!text.equals("stop"))
+    public UppgiftAnalyzer() {
+        //attributet sätts till 0
+        this.lineCount = 0;
+        this.charCount = 0;
+        this.wordCount = 0;
+        this.longestWord = "";
+        this.running = true;
+        // Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i logikklassen
+        //Bestämmer om raden ska tolkas som stop kommando
+    }
 
-    // Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i logikklassen
-    //DEn här bestämmer om raden ska tolkas som stop kommando
-
-   //public boolean isStop(String line) {
-
-        //if (line.trim().equals("stop")) {
-          // return true;
-       // } else {
-           // return false;
-
-       // }
-   // }
 
 //Ordningen avgör. Från scanner kommer frågan
 // och Om break blir så körs aldrig processLine igen
@@ -51,13 +48,15 @@ public class UppgiftAnalyzer {
 
 
     public void processLine(String line) {
-if (line.trim().equals("stop"))   {
+        if (line.trim().equals("stop")) {
 
-    running = false;
-    return;
+            running = false;
+            return;
+//Ordningen avgör. Från scanner kommer frågan
+// och Om false blir så körs aldrig processLine igen
+            //Och därför räknas inte raden med stop med.
 
-
-}
+        }
         lineCount++;
         charCount += line.length();
 
@@ -94,6 +93,7 @@ if (line.trim().equals("stop"))   {
 
         return longestWord;
     }
+
     public boolean isRunning() {
         return running;
     }

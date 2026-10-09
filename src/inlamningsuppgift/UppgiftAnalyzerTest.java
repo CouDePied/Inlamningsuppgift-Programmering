@@ -4,6 +4,7 @@ package inlamningsuppgift;
 //Testfallen ska skilja sig märkbart åt och testa olika delar av programmet
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -35,129 +36,146 @@ public class UppgiftAnalyzerTest {
 
 
     }
-@Test
-public void CountCharactersTest() {
+
+    @Test
+    public void CountCharactersTest() {
         //Testar att programmet räknar antal tecken.
-    //processLine() gör själva räknandet
-    //Och getCharCount() hämtar resultatet.
+        //processLine() gör själva räknandet
+        //Och getCharCount() hämtar resultatet.
         //Arrange
-    UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
 
-    //Act
-    analyzer.processLine("Hej");
-    analyzer.processLine("Jag heter Rebecca");
+        //Act
+        analyzer.processLine("Hej");
+        analyzer.processLine("Jag heter Rebecca");
 
-    int actual = analyzer.getCharCount();
-    int expected = 20;
+        int actual = analyzer.getCharCount();
+        int expected = 20;
 
-    //Assert
-    assertEquals(expected, actual);
-
-
-
-        }
-        @Test
-        public void CountWordsTest() {
-            //Testar ordräknaren.
-            //Arrange
-            UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-            //Act
-            analyzer.processLine("Jag gillar katter");
-
-            int actual = analyzer.getWordCount(); // Klicka på Create method
-            int expected = 3;
-            //Assert
-            assertEquals(expected, actual);
-
-
-
-        }
-        @Test
-        public void FindLongestWordTest() {
-            //Kontrollerar att programmet hittar det längsta ordet
-            //Arrange
-            UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-            //Act
-            analyzer.processLine("Jag gillar mörk choklad och katter");
-
-            String actual = analyzer.getLongestWord();
-            String expected = "choklad";
-            //Assert
-            assertEquals(expected, actual);
-
-
-
-
-        }
-        //Kontrollerar om/att programmet räknar text.
-        //Om siffror behandlas som text.
-        @Test
-        public void CountNumbersAsWordsTest() {
-
-            //Arrange
-            UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-
-            //Act
-            analyzer.processLine("123 456 789");
-
-            int actual = analyzer.getWordCount();
-            int expected = 3;
-
-            assertEquals(expected, actual);
-
-
-
-
-        }
-        //Testar en tom textsträng och ser om line.length
-        //Fungerar om den är tom.
-        @Test
-        public void CountEmptyLineAsZeroCharacters() {
-            //Arrange
-            UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-            //Act
-            analyzer.processLine("");
-
-            int actual = analyzer.getCharCount();
-            int expected = 0;
-
-            //Assert
-            assertEquals(expected, actual);
-
-
-
-        }
-        //Kontrollerar om logiken i stop fungerar som den ska
-        @Test
-    public void StopReturnsFalseTest() {
-//Arrange
-
-UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
-
-//Act
-            analyzer.processLine("stop");
-   boolean actual = analyzer.isRunning();
-   boolean expected = false;
-   //Assert
-            assertEquals(expected, actual);
+        //Assert
+        assertEquals(expected, actual);
 
 
     }
-@Test
-        public void TextReturnsTrueTest() {
+
+    @Test
+    public void CountWordsTest() {
+        //Testar ordräknaren.
         //Arrange
-    UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+        //Act
+        analyzer.processLine("Jag gillar katter");
 
-    //Act
-    analyzer.processLine("Hej");
+        int actual = analyzer.getWordCount(); // Klicka på Create method
+        int expected = 3;
+        //Assert
+        assertEquals(expected, actual);
 
-    boolean actual = analyzer.isRunning();
-    boolean expected = true;
 
-    assertEquals(expected, actual);
+    }
 
-}
+    @Test
+    public void FindLongestWordTest() {
+        //Kontrollerar att programmet hittar det längsta ordet
+        //Arrange
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+        //Act
+        analyzer.processLine("Jag gillar mörk choklad och katter");
 
+        String actual = analyzer.getLongestWord();
+        String expected = "choklad";
+        //Assert
+        assertEquals(expected, actual);
+
+
+    }
+
+    //Kontrollerar om/att programmet räknar text.
+    //Om siffror behandlas som text.
+    @Test
+    public void CountNumbersAsWordsTest() {
+
+        //Arrange
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+
+        //Act
+        analyzer.processLine("123 456 789");
+
+        int actual = analyzer.getWordCount();
+        int expected = 3;
+
+        assertEquals(expected, actual);
+
+
+    }
+
+    //Testar en tom textsträng och ser om line.length
+    //Fungerar om den är tom.
+    @Test
+    public void CountEmptyLineAsZeroCharacters() {
+        //Arrange
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+        //Act
+        analyzer.processLine("");
+
+        int actual = analyzer.getCharCount();
+        int expected = 0;
+
+        //Assert
+        assertEquals(expected, actual);
+
+
+    }
+
+    //Kontrollerar om logiken i stop fungerar som den ska.
+    //Att båda boolena lägen fungerar.
+    @Test
+    public void StopReturnsFalseTest() {
+//Arrange
+
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+
+//Act
+        analyzer.processLine("stop");
+        boolean actual = analyzer.isRunning();
+        boolean expected = false;
+        //Assert
+        assertEquals(expected, actual);
+
+
+    }
+    //Kontrollerar att båda lägen i boolean fungerar
+    //Att true returneras.
+    @Test
+    public void TextReturnsTrueTest() {
+        //Arrange
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+
+        //Act
+        analyzer.processLine("Hej");
+
+        boolean actual = analyzer.isRunning();
+        boolean expected = true;
+
+        assertEquals(expected, actual);
+
+    }
+    //Kontrollerar om att stop inte räknas som en rad
+    @Test
+    public void StopIsNotCountedAsLineTest() {
+        //Arrange
+        UppgiftAnalyzer analyzer = new UppgiftAnalyzer();
+
+        //Act
+        analyzer.processLine("Hej");
+        analyzer.processLine("stop");
+        int actual = analyzer.getLineCount();
+        int expected = 1;
+
+        //Assert
+        assertEquals(expected, actual);
+
+    }
 }
 
 
